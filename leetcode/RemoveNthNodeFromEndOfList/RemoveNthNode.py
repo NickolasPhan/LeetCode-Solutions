@@ -17,10 +17,12 @@ class Solution:
             head = head.next
 
 
-        actualIndex = count - n
+        actualIndex = count - n - 1
 
+        '''
         if actualIndex == count:
             head
+        '''
 
         head = headCopy
 
@@ -28,11 +30,16 @@ class Solution:
 
         temp = head
         prev = None
-        while head:
-            
-            count += 1
-            if count == actualIndex:
+        while head.next:
+            prev = head
+            head = head.next
 
+            if count == actualIndex:
+                prev.next = head.next
+
+            count += 1
+
+        return headCopy 
 
 def main():
     myList = ListNode()
@@ -42,10 +49,14 @@ def main():
         myListPtr.next = ListNode(val)
         myListPtr = myListPtr.next
 
-    userIn = int(input("Enter nth number to remove from end:"))
+    userIn = int(input("Enter nth number to remove from end: "))
 
     solution = Solution()
-    solution.removeNthFromEnd(myList, userIn)
+    head = solution.removeNthFromEnd(myList, userIn)
+
+    while head:
+        print(head.val)
+        head = head.next
 
 if __name__ == "__main__":
     main()
