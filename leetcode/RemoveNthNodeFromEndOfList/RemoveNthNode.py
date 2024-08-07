@@ -19,16 +19,10 @@ class Solution:
 
         actualIndex = count - n - 1
 
-        '''
-        if actualIndex == count:
-            head
-        '''
-
         head = headCopy
 
         count = 0
 
-        temp = head
         prev = None
         while head.next:
             prev = head
