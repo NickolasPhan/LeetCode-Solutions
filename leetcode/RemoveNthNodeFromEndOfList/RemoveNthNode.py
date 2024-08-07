@@ -16,7 +16,23 @@ class Solution:
             # print(head.val)
             head = head.next
 
-        print(count)
+
+        actualIndex = count - n
+
+        if actualIndex == count:
+            head
+
+        head = headCopy
+
+        count = 0
+
+        temp = head
+        prev = None
+        while head:
+            
+            count += 1
+            if count == actualIndex:
+
 
 def main():
     myList = ListNode()
