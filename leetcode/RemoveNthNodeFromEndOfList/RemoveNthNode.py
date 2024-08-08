@@ -18,26 +18,22 @@ class Solution:
         actualIndex = count - n
         actualIndex -= 1
 
-        print("actualIndex:", actualIndex)
-        print("count:", count)
-
-        if actualIndex+1 == count:
-            return head
-
         head = headCopy
 
-        count = 0
-
-        prev = None
-        while head.next:
-            prev = head
+        if actualIndex == -1:
             head = head.next
+            return head
 
-            print("actualIndex:", actualIndex)
-            print("count:", count)
+        count = 0 
+
+        temp = head
+        prev = None
+        while temp.next:
+            prev = temp
+            temp = temp.next
 
             if count == actualIndex:
-                prev.next = head.next
+                prev.next = temp.next
 
             count += 1
 
