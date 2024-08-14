@@ -20,10 +20,15 @@ class Solution:
             testString += char
 
         for dupChar in duplicates:
-            indices = [i for i, x in enumerate(duplicates) if x == dupChar]
+            # indices = [i for i, x in enumerate(duplicates) if x == dupChar]
+            indices = [i for i, x in enumerate(s) if x == dupChar]
+            
+            print(indices)
+            print(dupChar)
             for index in indices:
-                # if s[]
+                
                 pass
+        
         print(duplicates)
         print(testString)
 
