@@ -31,7 +31,8 @@ class Solution:
 
 def main():
     # s = "Hello World!"
-    s = input("Input test string:")
+    # s = input("Input test string:")
+    s = "babad"
     solution = Solution()
     print(solution.longestPalindrome(s))
 
