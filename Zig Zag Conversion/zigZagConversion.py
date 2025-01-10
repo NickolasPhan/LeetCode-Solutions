@@ -4,14 +4,24 @@ class Solution:
         curr_list = []
         initArr = ['' for i in range(numRows)]
         numZags = numRows - 2
+        # numZags = numZags if numZags > 0 else 1
         zagFlag = False
         positionCounter = 0
         # working on - how to know when the loop is in the zag section? how to navigate that?
 
         for char in s:
-            if zagFlag:
+            if zagFlag and numZags != 0:
                 zagArr = initArr[:]
-                zagArr[numZags] = char
+
+                if numZags < 0:
+                    zagArr[0] = char
+                # elif numZags == 0:
+                #     curr_list.append(char)
+                #     positionCounter += 1
+                #     continue
+                else:
+                    zagArr[numZags] = char
+                    
                 all_list.append(zagArr)
                 numZags -= 1
 
@@ -34,6 +44,8 @@ class Solution:
                     curr_list.extend([""] * (numRows - len(curr_list)))
                 all_list.append(curr_list)
 
+        # print(all_list)
+
         result = self.createZigZag(lst=all_list, numRows=numRows)
         return result
 
@@ -52,8 +64,10 @@ class Solution:
 def main():
     var = Solution()
 
-    string = 'ABC'
-    rows = 1
+    string = 'hinmicwsqhptvaprhlmdnjewwpvidxcmfpyqtxklebfzdwskhgnwrtvnksvorzczrbrmybyeeffhdarmggiaafnkxlapkdodgfqgiommvrtytmkauuauaphzajoloeoujgarwmfrgarzmdbjydfatmztyqgmuxjedlxcaftgflhuqldooiqjxqfvinjcksgqeguglnosavorgrhxcaizsnwabfcnalfgrzmepaypxniegsdisljkzhkcpmprxxxqwjwllxdiklosdrdxfohgwringzefwbytmwgxtjhdxwycpbawphcnbmajmeokhoftlmsexakuyixplxmagoojdospvjbcxhwivqpsqbpqjogwnswtimdlbxcwgeaenwoknde'
+    rows = 40
+    # string = 'PAYPALISHIRING'
+    # rows = 3
 
     result = var.convert(string, rows)
 
