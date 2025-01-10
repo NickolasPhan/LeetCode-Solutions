@@ -4,10 +4,8 @@ class Solution:
         curr_list = []
         initArr = ['' for i in range(numRows)]
         numZags = numRows - 2
-        # numZags = numZags if numZags > 0 else 1
         zagFlag = False
         positionCounter = 0
-        # working on - how to know when the loop is in the zag section? how to navigate that?
 
         for char in s:
             if zagFlag and numZags != 0:
@@ -15,10 +13,6 @@ class Solution:
 
                 if numZags < 0:
                     zagArr[0] = char
-                # elif numZags == 0:
-                #     curr_list.append(char)
-                #     positionCounter += 1
-                #     continue
                 else:
                     zagArr[numZags] = char
                     
@@ -54,7 +48,6 @@ class Solution:
         for idx in range(numRows):
             chars = [sublist[idx] for sublist in lst if sublist]
             orderedLst += chars
-            # print(' '.join(chars))
 
         resultLst = [char for char in orderedLst if char]
         resultStr = ''.join(resultLst)
