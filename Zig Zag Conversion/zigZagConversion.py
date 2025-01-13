@@ -57,13 +57,13 @@ class Solution:
 def main():
     var = Solution()
 
-    string = 'hinmicwsqhptvaprhlmdnjewwpvidxcmfpyqtxklebfzdwskhgnwrtvnksvorzczrbrmybyeeffhdarmggiaafnkxlapkdodgfqgiommvrtytmkauuauaphzajoloeoujgarwmfrgarzmdbjydfatmztyqgmuxjedlxcaftgflhuqldooiqjxqfvinjcksgqeguglnosavorgrhxcaizsnwabfcnalfgrzmepaypxniegsdisljkzhkcpmprxxxqwjwllxdiklosdrdxfohgwringzefwbytmwgxtjhdxwycpbawphcnbmajmeokhoftlmsexakuyixplxmagoojdospvjbcxhwivqpsqbpqjogwnswtimdlbxcwgeaenwoknde'
-    rows = 40
-    # string = 'PAYPALISHIRING'
-    # rows = 3
+    # string = 'hinmicwsqhptvaprhlmdnjewwpvidxcmfpyqtxklebfzdwskhgnwrtvnksvorzczrbrmybyeeffhdarmggiaafnkxlapkdodgfqgiommvrtytmkauuauaphzajoloeoujgarwmfrgarzmdbjydfatmztyqgmuxjedlxcaftgflhuqldooiqjxqfvinjcksgqeguglnosavorgrhxcaizsnwabfcnalfgrzmepaypxniegsdisljkzhkcpmprxxxqwjwllxdiklosdrdxfohgwringzefwbytmwgxtjhdxwycpbawphcnbmajmeokhoftlmsexakuyixplxmagoojdospvjbcxhwivqpsqbpqjogwnswtimdlbxcwgeaenwoknde'
+    # rows = 40
+    string = 'PAYPALISHIRING'
+    rows = 3
 
     result = var.convert(string, rows)
-
+    print(string)
     print(result)
 
 if __name__ == "__main__":
