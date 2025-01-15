@@ -5,31 +5,20 @@ class Solution():
     def longestPalindrome(self, s: str) -> str:
         longestPalindrome = 's'
         i = 0
-        for idx, char in enumerate(s):
-            print("looking at:", char)
-
-            # What do you want to do?
-            # From a char in the string,
-            # take it and starting from itself,
-            # look at a string if it were that char
-            # and the two characters ahead and behind it.
-            # if it is a palindrome, keep expanding.
-            # if it is longer than the current
-            # 'longestPalindrome', keep going.
-            # if it isn't, continue.
-            # if it finishes but isn't longer than the longest palindrome, continue.
-
-
-            # Now: Change it to instead of viewing a single letter, it is viewing the cursor
+        for idx in range(len(s)):
             i = 0
-            head = idx-i
-            tail = idx+i+1
+            head, tail = idx, idx+1
+            flag = True
             while True:
-                if i % 2 == 0:
-                    # head = idx-i
-                    head = idx-i if i > 0 else idx
+                if i == 0:
+                    head = idx-i
+                elif i == 1:
+                    tail = idx+2
                 else:
-                    tail = idx+i+1
+                    if i%2==0:
+                        head -= 1
+                    else:
+                        tail += 1
 
                 if head < 0 or tail > len(s):
                     break
@@ -39,25 +28,30 @@ class Solution():
                 if self.checkPalindrome(s=evalStr):
                     if len(evalStr) >= len(longestPalindrome):
                         longestPalindrome = evalStr
-                        print(longestPalindrome)
+                    flag = True
                     i += 1
                 else:
-                    # i += 1
-                    break
+                    if i > 1 and i%2==0:
+                        if flag:
+                            flag = not flag
+                            i += 1
+                            continue
 
+                        flag = not flag
+                        break
+                    i += 1
+                    continue
+        
         return longestPalindrome
 
 def main():
     var = Solution()
 
-    strings = ["sbababd", "cbbd", "a", "jfewjfewjjfwebookoobfjiewjfewjefw"]
-    # string = "babad"
+    strings = ["wvvvwqgjjgq", "tattarrattat", "sbababd", "cbbd", "aaaa", "jfewjfewjjfwebookoobfjiewjfewjefw"]
 
     for s in strings:
+        print(f"\n\nStarting with {s}\n")
         print(var.longestPalindrome(s=s))
-    # test = var.longestPalindrome(s=string)
-    
-    # print(f'\n{test}')
 
 if __name__ == "__main__":
     print()
