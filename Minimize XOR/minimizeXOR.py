@@ -11,7 +11,8 @@ class Solution:
 
         # solutionBank = []
 
-        i = num1+1
+        # i = num1+1
+        i = 0
         print(i)
         while True:
             if i.bit_count() != num2.bit_count():
@@ -32,6 +33,7 @@ def main():
 
     print(f'dec: {res}\nbin: {res:b}')
 
+    print(f'\nresult: {res} XOR num1: {num1}\nXOR result: {res^num1}')
 
     # for num in res:
     #     print(f'{num:b}')
